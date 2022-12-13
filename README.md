@@ -19,7 +19,7 @@ module.exports = {
     new OptimizeImagePlugin({
       test: /\.(png|gif|ico|jpg|jpeg)$/,
       options: {
-        sourcePath: "public",
+        sourcePath: path.resolve(__dirname, "public"),
         outputPath: "public/assets/optimize-images",
         sizes: [375, 768, 1280],
         quality: 80,

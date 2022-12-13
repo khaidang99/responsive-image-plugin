@@ -120,11 +120,7 @@ class OptimizeImagePlugin {
     }
 
     const onEmit = (compilation, callback) => {
-      const contextImage = context(
-        path.join(__dirname, this.options.sourcePath),
-        true,
-        this.test
-      );
+      const contextImage = context(this.options.sourcePath, true, this.test);
       const assetNames = contextImage.keys();
 
       console.log(CYAN, "OptimizeImagePlugin: Assets are being optimized....");
