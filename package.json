@@ -1,6 +1,6 @@
 {
   "name": "responsive-image-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A webpack loader for responsive images for responsive images",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "url": "https://github.com/khaidang99/responsive-image-plugin/issues"
   },
   "homepage": "https://github.com/khaidang99/responsive-image-plugin#readme",
-
   "dependencies": {
     "sharp": "^0.31.2"
   }
