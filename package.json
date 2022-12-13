@@ -18,5 +18,8 @@
   "homepage": "https://github.com/khaidang99/responsive-image-plugin#readme",
   "dependencies": {
     "responsive-image-plugin": "^1.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.31.2"
   }
 }
