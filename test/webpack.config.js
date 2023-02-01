@@ -15,7 +15,7 @@ module.exports = {
       test: /\.(png|gif|ico|jpg|jpeg)$/,
       options: {
         sourcePath: path.resolve(__dirname, "public"),
-        outputPath: "public/assets/optimize-images",
+        outputPath: "test/optimize-images",
         sizes: [375, 768, 1280],
         quality: 80,
         overrideExtension: true,
