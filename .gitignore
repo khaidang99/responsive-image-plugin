@@ -1,3 +1,6 @@
 node_modules
 lib
-public
+**/test/optimize-images/
+[Bb]uild/
+/package-lock.json
+/public
