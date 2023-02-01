@@ -1,9 +1,7 @@
 const path = require("path");
-import * as webpack from "webpack";
-var fs = require("fs");
-const sharp = require("sharp");
 
-import { Metadata, OutputInfo } from "sharp";
+import * as sharp from "sharp";
+import{ Metadata, OutputInfo } from "sharp";
 import { Compiler, Compilation } from "webpack";
 import { InnerCallback } from "tapable";
 
@@ -51,7 +49,7 @@ class OptimizeImagePlugin {
   apply(compiler: Compiler) {
     const pluginName: string = OptimizeImagePlugin.name;
 
-    const { webpack, intermediateFileSystem, compilerPath } = compiler;
+    const { webpack, intermediateFileSystem } = compiler;
     const { Compilation } = webpack;
 
     const context = (
@@ -64,10 +62,10 @@ class OptimizeImagePlugin {
     } => {
       const files = {};
       function readDirectory(directory: string) {
-        const intermediateFileSystema: any = intermediateFileSystem;
-        intermediateFileSystema.readdirSync(directory).forEach((file) => {
+        const fileSystem: any = intermediateFileSystem;
+        fileSystem.readdirSync(directory).forEach((file: string) => {
           const fullPath = path.resolve(directory, file);
-          if (intermediateFileSystema.statSync(fullPath).isDirectory()) {
+          if (fileSystem.statSync(fullPath).isDirectory()) {
             if (scanSubDirectories) readDirectory(fullPath);
             return;
           }
@@ -136,7 +134,6 @@ class OptimizeImagePlugin {
     }
 
     const onEmit = (
-      compilation: Compilation,
       callback: InnerCallback<Error, void>
     ) => {
       const contextImage = context(this.options.sourcePath, true, this.test);
@@ -212,7 +209,7 @@ class OptimizeImagePlugin {
             // that all assets were already added to the compilation by other plugins.
             stage: Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
           },
-          (assets, callback) => onEmit(compilation, callback)
+          (assets, callback) => onEmit(callback)
         );
       }
     );
