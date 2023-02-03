@@ -1,6 +1,7 @@
 const path = require("path");
 
-const OptimizeImagePlugin = require("../index.js");
+const OptimizeImagePlugin = require("../lib/index.js");
+// const OptimizeImagePlugin = require("../index.js");
 
 module.exports = {
   mode: "development",
