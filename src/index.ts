@@ -1,7 +1,7 @@
 const path = require("path");
+const sharp = require("sharp");
 
-import * as sharp from "sharp";
-import{ Metadata, OutputInfo } from "sharp";
+import { Metadata, OutputInfo } from "sharp";
 import { Compiler, Compilation } from "webpack";
 import { InnerCallback } from "tapable";
 
@@ -116,15 +116,15 @@ class OptimizeImagePlugin {
       });
     }
 
-    function writeFile(fs: AA, filePath: string, data) {
+    function writeFile(fs: any, filePath: string, data: Buffer) {
       return new Promise((resolve, reject) => {
-        fs.mkdir(path.dirname(filePath), (err: any) => {
+        fs.mkdir(path.dirname(filePath), { recursive: true }, (err: Error) => {
           if (err) {
             reject(err);
             return;
           }
 
-          fs.writeFile(filePath, data, (err) => {
+          fs.writeFile(filePath, data, (err: Error) => {
             if (err) throw err;
 
             resolve(filePath);
@@ -133,9 +133,7 @@ class OptimizeImagePlugin {
       });
     }
 
-    const onEmit = (
-      callback: InnerCallback<Error, void>
-    ) => {
+    const onEmit = (callback: InnerCallback<Error, void>) => {
       const contextImage = context(this.options.sourcePath, true, this.test);
       const assetNames = contextImage.keys();
 
@@ -169,7 +167,6 @@ class OptimizeImagePlugin {
             Promise.all(promises).then((resizes) => {
               resizes.forEach((size) => {
                 let fileName = path.join(
-                  __dirname,
                   this.options.outputPath,
                   `${outputFileName}-${size.width}x${size.height}.webp`
                 );
