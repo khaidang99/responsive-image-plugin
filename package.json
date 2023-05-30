@@ -1,6 +1,6 @@
 {
   "name": "responsive-image-plugin",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A webpack loader for responsive images for responsive images",
   "main": "dist/index.js",
   "source": "src/index.ts",
