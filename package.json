@@ -2,7 +2,12 @@
   "name": "responsive-image-plugin",
   "version": "1.0.4",
   "description": "A webpack loader for responsive images for responsive images",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "jest": "jest",
     "test": "npm run build && webpack --config=./test/webpack.config.js && jest",
