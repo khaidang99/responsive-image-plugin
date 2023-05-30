@@ -8,9 +8,8 @@ import { InnerCallback } from "tapable";
 const CYAN = "\x1b[36m%s\x1b[0m";
 const GREEN = "\x1b[32m%s\x1b[0m";
 const RED = "\x1b[31m%s\x1b[0m";
-type AA = Compiler["intermediateFileSystem"];
 
-type OptionsPlugin = {
+export type OptionsPlugin = {
   sourcePath: string;
   outputPath: string;
   sizes: number[];
@@ -18,7 +17,7 @@ type OptionsPlugin = {
   overrideExtension: boolean;
 };
 
-type ParamsResize = {
+export type ParamsResize = {
   size: number;
   imagePath: string;
   options?: OptionsPlugin;
@@ -213,4 +212,4 @@ class OptimizeImagePlugin {
   }
 }
 
-module.exports = OptimizeImagePlugin;
+export default OptimizeImagePlugin;
