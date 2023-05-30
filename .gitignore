@@ -3,4 +3,9 @@ lib
 **/test/optimize-images/
 [Bb]uild/
 /package-lock.json
+/yarn.lock
+yarn.lock
+*.log
+.yarn/*
 /public
+/dist
